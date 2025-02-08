@@ -16,7 +16,7 @@
 (load "~/.emacs.rc/rc.el")
 
 (add-to-list 'default-frame-alist
-	     '(font . "JetBrainsMono Nerd Font Mono-15:weight=bold"))
+	     '(font . "Iosevka Nerd Font Mono-18:"))
 
 (rc/require 'rust-mode)
 (rc/require 'gruvbox-theme)
@@ -44,7 +44,7 @@
 (setq display-line-numbers-type 'relative)
 (setq inhibit-startup-screen t)
 
-(setq backup-directory-alist '(("." . "~/emacs_saves")))
+;(setq backup-directory-alist '(("." . "~/emacs_saves")))
 
 (setq make-backup-files nil)
 (setq tab-width 4)
