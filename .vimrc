@@ -30,8 +30,8 @@ call plug#begin()
 Plug 'junegunn/seoul256.vim'
 
 " lsp motor y servidor
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 
 " fuzzyfinder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -49,8 +49,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdcommenter'
 
 " Completado
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -77,11 +77,11 @@ set signcolumn=no
 
 " Completion
 
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-" enter to always new line
-inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+" " enter to always new line
+" inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
 
 " nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -121,27 +121,27 @@ let g:NERDToggleCheckAllLines = 1
 let g:fzf_vim = {}
 
 " toggle diagnostic
-let g:my_lsp_diagnostics_enabled = 1
-
-function s:MyToggleLSPDiagnostics()
-    if g:my_lsp_diagnostics_enabled == 1
-        call lsp#disable_diagnostics_for_buffer()
-        let g:my_lsp_diagnostics_enabled = 0
-        echo "LSP Diagnostics : off"
-    else
-        call lsp#enable_diagnostics_for_buffer()
-        let g:my_lsp_diagnostics_enabled = 1
-        echo "LSP Diagnostics : on"
-    endif
-endfunction
-
-command MyToggleLSPDiagnostics call s:MyToggleLSPDiagnostics()
-
-nnoremap <F1> :MyToggleLSPDiagnostics<CR>
-
-" Format range of code
-vnoremap <C-f> :LspDocumentRangeFormat<CR>
-
-" Format whole document
-nnoremap <C-f> :LspDocumentFormat<CR>
+" let g:my_lsp_diagnostics_enabled = 1
+"
+" function s:MyToggleLSPDiagnostics()
+"     if g:my_lsp_diagnostics_enabled == 1
+"         call lsp#disable_diagnostics_for_buffer()
+"         let g:my_lsp_diagnostics_enabled = 0
+"         echo "LSP Diagnostics : off"
+"     else
+"         call lsp#enable_diagnostics_for_buffer()
+"         let g:my_lsp_diagnostics_enabled = 1
+"         echo "LSP Diagnostics : on"
+"     endif
+" endfunction
+"
+" command MyToggleLSPDiagnostics call s:MyToggleLSPDiagnostics()
+"
+" nnoremap <F1> :MyToggleLSPDiagnostics<CR>
+"
+" " Format range of code
+" vnoremap <C-f> :LspDocumentRangeFormat<CR>
+"
+" " Format whole document
+" nnoremap <C-f> :LspDocumentFormat<CR>
 
