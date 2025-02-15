@@ -197,3 +197,4 @@ bindsym $mod+b exec "boomer"
 bar {
         status_command i3status
 }
+
