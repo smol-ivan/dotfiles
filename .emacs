@@ -18,9 +18,17 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(global-set-key (kbd "C-SPC") 'set-mark-command)
+
 (setq custom-file "~/.emacs.custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;;; MAC_ONLY
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)
 
 (setq make-backup-files nil)
 
@@ -52,6 +60,7 @@
 
 ;(menu-bar-mode tool)
 (tool-bar-mode 0)
+(menu-bar-mode 0)
 (scroll-bar-mode 0)
 (save-place-mode 1)
 (set-fill-column 100)
@@ -68,6 +77,14 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (use-package seoul256-theme)
+(use-package moe-theme)
+(use-package ample-theme)
+(use-package gruber-darker-theme)
+(use-package kanagawa-themes)
+
+(add-to-list 'load-path "~/.emacs.local/")
+(require 'simpc-mode)
+(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 
 (use-package paredit)
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
@@ -169,10 +186,10 @@
   (setq tab-width 4)
   (setq indent-tabs-mode nil))
 
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+;; (use-package flycheck
+;;   :ensure t
+;;   :config
+;;   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package company
   :config

@@ -56,6 +56,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 call plug#end()
 
+let g:seoul256_background = 234
 silent! colorscheme seoul256
 
 " Custom keymaps
