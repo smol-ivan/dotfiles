@@ -556,6 +556,19 @@ require("lazy").setup({
 				},
 				astro = {},
 				html = {},
+				pylsp = {
+					settings = {
+						pylsp = {
+							plugins = {
+								pycodestyle = { enabled = false }, -- Desactiva si usas flake8
+								flake8 = { enabled = true },
+								black = { enabled = true },
+								isort = { enabled = true },
+								mypy = { enabled = true },
+							},
+						},
+					},
+				},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -599,6 +612,12 @@ require("lazy").setup({
 				"stylua", -- Used to format Lua code
 				"prettierd",
 				"eslint_d",
+				"black",
+				"debugpy",
+				"isort",
+				"flake8",
+				"mypy",
+				"python-lsp-server",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
