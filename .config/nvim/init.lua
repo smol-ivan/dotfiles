@@ -560,11 +560,12 @@ require("lazy").setup({
 					settings = {
 						pylsp = {
 							plugins = {
-								pycodestyle = { enabled = false }, -- Desactiva si usas flake8
-								flake8 = { enabled = true },
-								black = { enabled = true },
+								pycodestyle = { enabled = false },
+								flake8 = { enabled = true, line_length = 120, skip_string_normalization = true },
+								black = { enabled = true, line_length = 120, skip_string_normalization = true },
 								isort = { enabled = true },
-								mypy = { enabled = true },
+								mypy = { enabled = false },
+								mccabe = { enabled = false },
 							},
 						},
 					},
@@ -588,7 +589,7 @@ require("lazy").setup({
 								callSnippet = "Replace",
 							},
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
+							diagnostics = { disable = { "missing-fields" } },
 						},
 					},
 				},
@@ -656,7 +657,7 @@ require("lazy").setup({
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = { c = true, cpp = true, python = true }
 				local lsp_format_opt
 				if disable_filetypes[vim.bo[bufnr].filetype] then
 					lsp_format_opt = "never"
@@ -671,7 +672,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
+				python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -806,7 +807,7 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("kanagawa-dragon")
+			vim.cmd.colorscheme("kanagawa-wave")
 
 			-- You can configure highlights by doing something like:
 			vim.cmd.hi("Comment gui=none")
@@ -817,7 +818,7 @@ require("lazy").setup({
 		branch = "harpoon2",
 		config = function()
 			local harpoon = require("harpoon")
-			---@diagnostic disable-next-line: missing-parameter
+			--@diagnostic disable-next-line: missing-parameter
 			harpoon:setup()
 			local function map(lhs, rhs, opts)
 				vim.keymap.set("n", lhs, rhs, opts or {})
