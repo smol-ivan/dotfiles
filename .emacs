@@ -6,6 +6,9 @@
 (run-with-idle-timer 10 t (lambda () (garbage-collect)))
 (setq read-process-output-max (* 1024 1024))
 
+(setq package-install-upgrade-built-in t)
+(progn (unload-feature 'seq t) (require 'seq))
+
 (require 'package)
 (package-initialize)
 (setq package-enable-at-startup nil)
