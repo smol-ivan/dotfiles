@@ -26,15 +26,15 @@
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
 font-family = Iosevka Nerd Font
-font-size = 19
+font-size = 17
 cursor-style = block
 cursor-style-blink = true
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,no-title
 window-padding-x = 2
 theme = Gruber Darker
 cursor-click-to-move
 cursor-text = #000000
-background-opacity=0.6
+background-opacity=0.8
 #background-image='~/.wallpaper/desperation.jpg'
 #
 # # Spacing around the equals sign does not matter.
