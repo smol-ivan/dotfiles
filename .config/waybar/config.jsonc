@@ -58,7 +58,7 @@
     "interface": "enp7s0",
     "format": "{ifname}",
     "format-wifi": "leaked! {essid} ",
-    "format-ethernet": "leaked! {ipaddr}/{cidr} 󰊗",
+    "format-ethernet": "{ipaddr} 󰊗",
     "format-disconnected": "", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",

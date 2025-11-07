@@ -55,6 +55,7 @@ tooltip label {
 #memory,
 #disk,
 #pulseaudio,
+#battery,
 #network {
     padding: 0px 16px;
     margin: 5px 5px;
